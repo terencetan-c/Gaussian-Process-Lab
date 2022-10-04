@@ -1,8 +1,6 @@
 \documentclass[11pt]{article}
 \usepackage[a4paper, margin=20mm]{geometry}
-\usepackage{fontspec}
  
-\setmainfont{Arial}
 
 \usepackage{amsmath}
 \usepackage{physics}
@@ -23,12 +21,11 @@
 
 
 \begin{document}
-\section{Task 1: Lower Bound for Neural Network Output}
+\section{Exponentiated Quadratic}
 \label{sec:Task 1}
 The method outlined in this task is essentially a trial-and-error approach to obtaining a lower bound to prove false properties. It is obvious that not all false properties are guaranteed to be proven false, especially for properties with mostly negative output domains. This means that even with very large values of \emph{k}, which would also be computationally expensive, there is always a chance that this method will miss a false property.
 \subsection{Average amount of time taken to generate the outputs}
 \label{sec:131}
- In order to avoid having to load the files 500\emph{k} times, we use an outer loop that loops through each file and an inner loop that loops through \emph{k}. We use the \emph{tic toc} function to get the time taken to generate the outputs for each $\emph{k}\in{\{1,2,3,....,K\}}$ for a single file, and store the values in a $(\emph{K}\times1)$ \emph{\textbf{individual\_time}} column vector. We then add up all the \emph{\textbf{individual\_time}} column vectors and divide by 500 element-wise to obtain the average amount of time taken to generate the outputs. When this data was plotted against \emph{k}, there were large spikes present in the plot. Given that the measured times were very short and \emph{tic toc} performs poorly when the code is too fast, the code was ran in a loop and the measured time was averaged for a single run \cite{tictoc}. The data is then plotted to give Figure \ref{fig:fig1a}. Not surprisingly, the average amount of time taken to generate the outputs tends to increase as \emph{k} gets larger. However, the large spikes are still present at the same positions of $\emph{k}=28,59,76$. This suggests that these spikes are not random events. One possible explanation is that these large spikes are intrinsic to the hardware of the device that the MATLAB code is being run on, due to the hardware-dependent behaviour of \emph{tic toc} \cite{hardware}.
  
 
 
